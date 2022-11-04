@@ -4,7 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("What database would you like to use? List, SQL, or Mongo?");
+            var typeList = Console.ReadLine();
+
+            IDataAccess list = DataAccessFactory.GetDataAccess(typeList);
+
+            list.LoadData();
+            list.SaveData();
         }
     }
 }
